@@ -1,6 +1,8 @@
 from flask import Flask
 from flask import jsonify
 from flask import request
+import cv2
+
 app = Flask(__name__)
 empDB=[
  {
@@ -54,6 +56,17 @@ def deleteEmp(empId):
        abort(404)
     empDB.remove(em[0])
     return jsonify({'response':'Success'})
-
+   
+@app.route('/empdb/fileProcess',methods=['POST'])
+def videoFileProcess():
+ if request.method == 'POST':
+  file = request.files['file']
+  if file.filename == '':
+   filename = file.filename
+   blob = request.files['file'].read()
+   size = len(blob)
+ return jsonify({'response':filename})
+  
+   
 if __name__ == '__main__':
  app.run()
