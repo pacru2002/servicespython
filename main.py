@@ -72,29 +72,5 @@ def deleteEmp(empId):
     empDB.remove(em[0])
     return jsonify({'response':'Success'})
 
-
-@app.route('/empdb/fileProcess',methods=['POST'])
-def videoFileProcess():
-    #print("inside video file process")
-    if request.method == 'POST':
-        file = request.files['file']
-        #print(file.filename)
-        # if user does not select file, browser also
-        # submit a empty part without filename
-        if file.filename == '':
-            print('No selected file')
-            #return redirect(request.url)
-        #if file and allowed_file(file.filename):
-        filename = file.filename
-        print("file name is "+filename)
-        blob = request.files['file'].read()
-        size = len(blob)
-        print(size)
-        print("after vc")
-        #file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        print("after save")
-            #return redirect(url_for('uploaded_file',filename=filename))
-    return jsonify({'response':filename})
-
 if __name__ == '__main__':
  app.run(debug=True)
