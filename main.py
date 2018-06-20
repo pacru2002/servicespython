@@ -1,7 +1,6 @@
 from flask import Flask
 from flask import jsonify
 from flask import request
-import cv2
 
 app = Flask(__name__)
 empDB=[
