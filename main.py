@@ -60,7 +60,8 @@ def deleteEmp(empId):
 def videoFileProcess():
   file = request.files['file']
   #blob = request.files['file'].read()
-  return jsonify({'response':'Success'})
+  filename = file.filename
+  return jsonify({'response':filename})
   
    
 if __name__ == '__main__':
