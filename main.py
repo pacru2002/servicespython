@@ -58,13 +58,9 @@ def deleteEmp(empId):
    
 @app.route('/empdb/fileProcess',methods=['POST'])
 def videoFileProcess():
- if request.method == 'POST':
   file = request.files['file']
-  if file.filename == '':
-   filename = file.filename
-   blob = request.files['file'].read()
-   size = len(blob)
- return jsonify({'response':filename})
+  #blob = request.files['file'].read()
+  return jsonify({'response':'Success'})
   
    
 if __name__ == '__main__':
