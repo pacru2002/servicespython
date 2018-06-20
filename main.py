@@ -1,6 +1,9 @@
 from flask import Flask
 from flask import jsonify
 from flask import request
+from keras.models import load_model
+import cv2
+import numpy as np
 
 app = Flask(__name__)
 empDB=[
@@ -61,6 +64,7 @@ def videoFileProcess():
   file = request.files['file']
   #blob = request.files['file'].read()
   filename = file.filename
+  
   return jsonify({'response':filename})
   
    
