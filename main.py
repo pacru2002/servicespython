@@ -6,7 +6,6 @@ from flask import request
 import cv2
 
 app = Flask(__name__)
-app.debug = True
 empDB=[
  {
  'id':'101',
@@ -106,4 +105,4 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 if __name__ == '__main__':
- app.run(debug=True)
+ app.run()
